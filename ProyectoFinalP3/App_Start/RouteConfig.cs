@@ -16,7 +16,7 @@ namespace ProyectoFinalP3
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Pacientes", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Habitaciones", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

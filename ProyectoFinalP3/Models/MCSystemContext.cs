@@ -16,5 +16,6 @@ namespace ProyectoFinalP3.Models
 
         public DbSet<Medicos> Medicos { get; set; }
         public DbSet<Pacientes> Pacientes { get; set; }
+        public DbSet<Habitaciones> Habitaciones { get; set; }
     }
 }
