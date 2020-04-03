@@ -135,6 +135,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Citas.cs" />
     <Compile Include="Models\Habitaciones.cs" />
     <Compile Include="Models\Medicos.cs" />
     <Compile Include="Models\MCSystemContext.cs" />
