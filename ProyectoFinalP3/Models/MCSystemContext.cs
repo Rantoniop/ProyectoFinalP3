@@ -18,5 +18,6 @@ namespace ProyectoFinalP3.Models
         public DbSet<Pacientes> Pacientes { get; set; }
         public DbSet<Habitaciones> Habitaciones { get; set; }
         public DbSet<Citas> Citas { get; set; }
+        public DbSet<Ingresos> Ingresos { get; set; }
     }
 }
