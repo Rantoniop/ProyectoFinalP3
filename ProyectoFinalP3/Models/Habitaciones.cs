@@ -16,7 +16,6 @@ namespace ProyectoFinalP3.Models
         [Required(ErrorMessage = "El tipo de habitacion es requerido.")]
         public string Tipo { get; set; }
         [Required(ErrorMessage = "El precio por dia de la habitacion es requerido.")]
-        [MaxLength(30, ErrorMessage = "Escriba un maximo de 30 caracteres.")]
         public double PrecioPorDia { get; set; }
     }
     
