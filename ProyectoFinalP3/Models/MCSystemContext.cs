@@ -19,5 +19,6 @@ namespace ProyectoFinalP3.Models
         public DbSet<Habitaciones> Habitaciones { get; set; }
         public DbSet<Citas> Citas { get; set; }
         public DbSet<Ingresos> Ingresos { get; set; }
+        public DbSet<Altas> Altas { get; set; }
     }
 }
