@@ -130,6 +130,7 @@
     <Compile Include="Controllers\HabitacionesController.cs" />
     <Compile Include="Controllers\MedicosController.cs" />
     <Compile Include="Controllers\ModuloCRUDController.cs" />
+    <Compile Include="Controllers\ModuloProcesosController.cs" />
     <Compile Include="Controllers\PacientesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -142,6 +143,8 @@
     <Compile Include="Models\Medicos.cs" />
     <Compile Include="Models\MCSystemContext.cs" />
     <Compile Include="Models\Pacientes.cs" />
+    <Compile Include="Models\ViewModels\MModel.cs" />
+    <Compile Include="Models\ViewModels\PModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -193,6 +196,10 @@
     <Content Include="Views\Habitaciones\Edit.cshtml" />
     <Content Include="Views\Habitaciones\Index.cshtml" />
     <Content Include="Views\ModuloCRUD\Index.cshtml" />
+    <Content Include="Views\ModuloProcesos\Index.cshtml" />
+    <Content Include="Views\ModuloProcesos\AgregarCita.cshtml" />
+    <Content Include="Views\ModuloProcesos\EditarCita.cshtml" />
+    <Content Include="Views\ModuloProcesos\BorrarCita.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

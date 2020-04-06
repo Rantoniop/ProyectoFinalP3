@@ -17,13 +17,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Nombre de aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Sistema de Control Médico", "", "", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Modulo CRUDs", "Index", "ModuloCRUD")</li>
-                    <li>@Html.ActionLink("Modulo Procesos", "About", "Home")</li>
-                    <li>@Html.ActionLink("Modulo Consultas", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Módulo Mantenimiento", "Index", "ModuloCRUD")</li>
+                    <li>@Html.ActionLink("Módulo Procesos", "Index", "ModuloProcesos")</li>
+                    <li>@Html.ActionLink("Módulo Consultas", "Contact", "Home")</li>
                 </ul>
             </div>
         </div>
@@ -32,7 +32,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            <p>&copy; @DateTime.Now.Year - Sistema de Control Médico ASP.NET</p>
         </footer>
     </div>
 

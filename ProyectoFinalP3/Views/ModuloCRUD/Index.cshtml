@@ -1,20 +1,34 @@
 ﻿
 @{
-    ViewBag.Title = "Modulo CRUDs";
+    ViewBag.Title = "Modulo Mantenimiento";
 }
 
 <html>
 <head>
-    <title>Modulo CRUDs</title>
+    <title>Modulo Mantenimiento</title>
+    <style>
+        .panel {
+            margin-top: 35px;
+
+        }
+     
+    </style>
 </head>
 <body>
     <div></div>
     <div>
-        <ul class="list-group">
-            <li class="list-group-item">@Html.ActionLink("CRUD Médicos", "Index", "Medicos")</li>
-            <li class="list-group-item">@Html.ActionLink("CRUD Pacientes", "Index", "Pacientes")</li>
-            <li class="list-group-item">@Html.ActionLink("CRUD Habitaciones", "Index", "Habitaciones")</li>
-        </ul>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title text-center">Módulo Mantenimiento</h4>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item">@Html.ActionLink("CRUD Médicos", "Index", "Medicos")</li>
+                    <li class="list-group-item">@Html.ActionLink("CRUD Pacientes", "Index", "Pacientes")</li>
+                    <li class="list-group-item">@Html.ActionLink("CRUD Habitaciones", "Index", "Habitaciones")</li>
+                </ul>
+            </div>
+        </div>
     </div>
     <div></div>
 </body>

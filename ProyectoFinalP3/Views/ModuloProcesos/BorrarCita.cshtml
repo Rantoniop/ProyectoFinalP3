@@ -1,0 +1,48 @@
+﻿
+@model ProyectoFinalP3.Models.Citas
+
+@{
+    ViewBag.Title = "BorrarCita";
+}
+
+<html>
+<head>
+    <title>Agregar Cita</title>
+    <style>
+        .panel {
+            margin-top: 35px;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div></div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title text-center">Eliminar Cita</h4>
+            </div>
+            <div class="panel-body">
+                <h4>Esta seguro que quiere Eliminar esta cita?</h4>
+
+
+                @using (Html.BeginForm())
+                {
+                    <div class="form-actions">
+                        <input type="submit" value="Eliminar" class="btn btn-default" /> |
+                        @Html.ActionLink("Volver atras", "Index")
+                    </div>
+                }
+            </div>
+        </div>
+
+
+        <div></div>
+    </div>
+</body>
+</html>
+
+
+
+
+
