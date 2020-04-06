@@ -1,86 +1,33 @@
-﻿@model ProyectoFinalP3.Models.Citas
-<partial name="~/Views/ModuloProcesos/_FormularioECita.cshtml"></partial>
-
-@using ProyectoFinalP3.Models
-
+﻿
 @{
-    ViewBag.Title = "AgregarCita";
+    ViewBag.Title = "Modulo Procesos";
 }
 
 <html>
-    <head>
-    <title>Agregar Cita</title>
-    
-        <meta charset="utf-8" />
-
-        <style>
-            .panel {
-                margin-top: 35px;
-            }
-
-           
-        </style>
-    </head>
-    <body>
-        <div>
-            <div></div>
-            <div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title text-center">Módulo Procesos</h4>
-                    </div>
-                    <div class="panel-body">
-                        <h2 class="text-center title">Citas Medicas</h2>       
-                        <div class="form-group">
-                            @Html.ActionLink("Crear Cita", "AgregarCita", "ModuloProcesos", new { @class = "btn btn-primary" })
-                        </div>
-                        <div class="form-group">
-                            <table class="table table-bordered table-striped">
-                                <tr>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Id)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Fecha)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.MedicosId)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.PacientesId)
-                                    </th>
-                                    <th></th>
-                                </tr>
-
-                                @foreach (Citas citas in ViewBag.Citas)
-                                {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => citas.Id)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => citas.Fecha)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => citas.MedicosId)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => citas.PacientesId)
-                                        </td>
-                                        <td>
-                                            @Html.ActionLink("Editar", "EditarCita", new { id = citas.Id }) |
-                                            @Html.ActionLink("Borrar", "BorrarCita", new { id = citas.Id })
-                                        </td>
-                                    </tr>
-                                }
-
-                            </table>
-                        </div>
-
-                    </div>
-                </div>
+<head>
+    <title>Modulo Procesos</title>
+    <style>
+        .panel {
+            margin-top: 35px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title text-center">Módulo Procesos</h4>
             </div>
-            <div></div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item">@Html.ActionLink("Proceso Citas", "VistaCitas", "ModuloProcesos")</li>
+                    <li class="list-group-item">@Html.ActionLink("Proceso Ingresos", "VistaIngresos", "ModuloProcesos")</li>
+                    <li class="list-group-item">@Html.ActionLink("Proceso Altas", "", "")</li>
+                </ul>
+            </div>
         </div>
-    </body>
+    </div>
+    <div></div>
+</body>
 </html>

@@ -143,6 +143,7 @@
     <Compile Include="Models\Medicos.cs" />
     <Compile Include="Models\MCSystemContext.cs" />
     <Compile Include="Models\Pacientes.cs" />
+    <Compile Include="Models\ViewModels\HModel.cs" />
     <Compile Include="Models\ViewModels\MModel.cs" />
     <Compile Include="Models\ViewModels\PModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -200,6 +201,11 @@
     <Content Include="Views\ModuloProcesos\AgregarCita.cshtml" />
     <Content Include="Views\ModuloProcesos\EditarCita.cshtml" />
     <Content Include="Views\ModuloProcesos\BorrarCita.cshtml" />
+    <Content Include="Views\ModuloProcesos\IngresoPaciente.cshtml" />
+    <Content Include="Views\ModuloProcesos\VistaCitas.cshtml" />
+    <Content Include="Views\ModuloProcesos\VistaIngresos.cshtml" />
+    <Content Include="Views\ModuloProcesos\EditarIngreso.cshtml" />
+    <Content Include="Views\ModuloProcesos\BorrarIngreso.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

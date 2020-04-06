@@ -1,0 +1,88 @@
+﻿@model ProyectoFinalP3.Models.Citas
+<partial name="~/Views/ModuloProcesos/_FormularioECita.cshtml"></partial>
+
+@using ProyectoFinalP3.Models
+
+@{
+    ViewBag.Title = "AgregarCita";
+}
+
+<html>
+<head>
+    <title>Agregar Cita</title>
+
+    <meta charset="utf-8" />
+
+    <style>
+        .panel {
+            margin-top: 35px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div></div>
+        <div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title text-center">Módulo Procesos</h4>
+                </div>
+                <div class="panel-body">
+                    @Html.ActionLink("Volver atras", "Index")
+                    <h2 class="text-center title">Citas Medicas</h2>
+                    <div class="form-group">
+
+                        @Html.ActionLink("Crear Cita", "AgregarCita", "ModuloProcesos", new { @class = "btn btn-primary" })
+                    </div>
+                    <div class="form-group">
+                        <table class="table table-bordered table-striped">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Id)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Fecha)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.MedicosId)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.PacientesId)
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (Citas citas in ViewBag.Citas)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => citas.Id)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => citas.Fecha)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => citas.MedicosId)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => citas.PacientesId)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Editar", "EditarCita", new { id = citas.Id }) |
+                                        @Html.ActionLink("Borrar", "BorrarCita", new { id = citas.Id })
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div></div>
+    </div>
+</body>
+</html>

@@ -10,6 +10,7 @@ namespace ProyectoFinalP3.Models
     public class Ingresos
     {
         public int Id { get; set; }
+        [DataType(DataType.Date)]
         [Required(ErrorMessage = "La fecha de ingreso es requerida.")]
         public DateTime Fecha { get; set; }
         public int PacientesId { get; set; }

@@ -1,9 +1,12 @@
-﻿@model ProyectoFinalP3.Models.Citas
+﻿@model ProyectoFinalP3.Models.Ingresos
+
+@using ProyectoFinalP3.Models
 
 @{
-    ViewBag.Title = "_EditarCita";
+    ViewBag.Title = "IngresoPaciente";
     List<SelectListItem> itemsP = (List<SelectListItem>)ViewBag.itemsP;
-    List<SelectListItem> itemsM = (List<SelectListItem>)ViewBag.itemsM;
+    List<SelectListItem> itemsH = (List<SelectListItem>)ViewBag.itemsH;
+
 }
 
 <html>
@@ -21,11 +24,11 @@
         <div></div>
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h4 class="panel-title text-center">Editar Cita</h4>
+                <h4 class="panel-title text-center">Ingreso Paciente</h4>
             </div>
             <div class="panel-body">
                 <div>
-                    @using (Html.BeginForm("EditarCita", "ModuloProcesos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    @using (Html.BeginForm("IngresoPaciente", "ModuloProcesos", FormMethod.Post, new { enctype = "multipart/form-data" }))
                     {
                         <div class="form-group">
                             @Html.Label("Paciente")
@@ -33,30 +36,23 @@
                             @Html.ValidationMessageFor(a => a.PacientesId, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
-                            @Html.Label("Medico")
-                            @Html.DropDownListFor(a => a.MedicosId, itemsM, "Selecciona el Nombre / Cedula", new { @class = "form-control" })
-                            @Html.ValidationMessageFor(a => a.MedicosId, "", new { @class = "text-danger" })
+                            @Html.Label("Habitacion")
+                            @Html.DropDownListFor(a => a.HabitacionesId, itemsH, "Selecciona la Habitacion", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(a => a.HabitacionesId, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
-                            @Html.Label("Fecha de Cita")<br />
+                            @Html.Label("Fecha de Ingreso")<br />
                             @Html.EditorFor(a => a.Fecha, new { @class = "form-control" })
                             @Html.ValidationMessageFor(a => a.Fecha, "", new { @class = "text-danger" })
                         </div>
-                        <div class="form-group">
-                            <input type="submit" value="Editar" class="btn btn-primary" /> |
-                            @Html.ActionLink("Volver atras", "VistaCitas")
+                        <div>
+                            <input type="submit" value="Agregar" class="btn btn-primary" />
                         </div>
-                        
                     }
-
-
                 </div>
             </div>
         </div>
-
-        
-    <div></div>
+        <div></div>
     </div>
 </body>
 </html>
-
