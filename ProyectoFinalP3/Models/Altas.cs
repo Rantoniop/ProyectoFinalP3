@@ -10,6 +10,7 @@ namespace ProyectoFinalP3.Models
     public class Altas
     {
         public int Id { get; set; }
+        [DataType(DataType.Date)]
         [Required(ErrorMessage = "La fecha de Alta es requerida.")]
         public DateTime Fecha { get; set; }
         public double Monto { get; set; }

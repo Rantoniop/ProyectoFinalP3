@@ -1,0 +1,52 @@
+﻿@model ProyectoFinalP3.Models.Ingresos
+
+
+@{
+    ViewBag.Title = "IngresoPaciente";
+    
+
+    List<SelectListItem> itemsVA = (List<SelectListItem>)ViewBag.itemsVA;
+
+}
+
+<html>
+<head>
+    <title>Agregar Cita</title>
+    <style>
+        .panel {
+            margin-top: 35px;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div></div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title text-center">Seleccion de Ingreso</h4>
+            </div>
+            <div class="panel-body">
+                <div>
+
+                    @using (Html.BeginForm("InfoAlta", "ModuloProcesos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <div class="form-group">
+                            @Html.Label("Seleccine el Id de ingreso")
+                            @Html.DropDownListFor(a => a.Id, itemsVA, "Selecciona el Id de Ingreso", new { @class = "form-control" })
+                        </div>
+                        <div>
+                            <input type="submit" value="Buscar" class="btn btn-primary" /> | 
+                            @Html.ActionLink("Volver atras", "VistaAltas")
+                        </div>
+                        
+                    }
+
+                    
+                </div>
+            </div>
+        </div>
+        <div></div>
+    </div>
+</body>
+</html>

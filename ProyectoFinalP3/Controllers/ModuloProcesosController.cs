@@ -12,7 +12,7 @@ namespace ProyectoFinalP3.Controllers
 {
     public class ModuloProcesosController : Controller
     {
-        
+    
         private MCSystemContext db = new MCSystemContext();
 
         // GET: ModuloProcesos
@@ -22,6 +22,8 @@ namespace ProyectoFinalP3.Controllers
             
             return View();
         }
+
+        /*---------------------------------------Proceso Citas--------------------------------------*/
 
         //Mostar vista VistaCitas
         public ActionResult VistaCitas()
@@ -52,7 +54,7 @@ namespace ProyectoFinalP3.Controllers
             {
                 return new SelectListItem()
                 {
-                    Text = d.Nombre + " / " + d.Cedula.ToString(),
+                    Text = d.Id + " / " + d.Nombre + " / " + d.Cedula.ToString(),
                     Value = d.Id.ToString(),
                     Selected = false
                 };
@@ -147,7 +149,7 @@ namespace ProyectoFinalP3.Controllers
             {
                 return new SelectListItem()
                 {
-                    Text = d.Nombre + " / " + d.Cedula.ToString(),
+                    Text = d.Id + " / " + d.Nombre + " / " + d.Cedula.ToString(),
                     Value = d.Id.ToString(),
                     Selected = false
                 };
@@ -221,6 +223,7 @@ namespace ProyectoFinalP3.Controllers
             return RedirectToAction("VistaCitas");
         }
 
+        /*---------------------------------------Proceso Ingresos--------------------------------------*/
         //Mostrar vista VistaIngresos
         public ActionResult VistaIngresos()
         {
@@ -249,7 +252,7 @@ namespace ProyectoFinalP3.Controllers
             {
                 return new SelectListItem()
                 {
-                    Text = d.Nombre + " / " + d.Cedula.ToString(),
+                    Text = d.Id + " / " + d.Nombre + " / " + d.Cedula.ToString(),
                     Value = d.Id.ToString(),
                     Selected = false
                 };
@@ -344,7 +347,7 @@ namespace ProyectoFinalP3.Controllers
             {
                 return new SelectListItem()
                 {
-                    Text = d.Nombre + " / " + d.Cedula.ToString(),
+                    Text = d.Id + " / " + d.Nombre + " / " + d.Cedula.ToString(),
                     Value = d.Id.ToString(),
                     Selected = false
                 };
@@ -379,7 +382,7 @@ namespace ProyectoFinalP3.Controllers
             return View(ingresos);
         }
 
-        // Editar Cita
+        // Editar ingreso
         [HttpPost]
         public ActionResult EditarIngreso(Ingresos ingresos)
         {
@@ -415,6 +418,152 @@ namespace ProyectoFinalP3.Controllers
             db.Ingresos.Remove(ingresos);
             db.SaveChanges();
             return RedirectToAction("VistaIngresos");
+        }
+
+        /*---------------------------------------Proceso Altas--------------------------------------*/
+        //Mostrar vista VistaAltas
+        public ActionResult VistaAltas()
+        {
+
+            ViewBag.Altas = db.Altas.ToList();
+            return View();
+        }
+
+        public ActionResult AgregarAlta()
+        {
+
+            //Llenar DropDownList de pacientes con id de la base de datos
+
+            List<VistaAltasAModel> lstVA = null;
+            lstVA =
+                (from d in db.Ingresos
+                 select new VistaAltasAModel
+                 {
+                     Id = d.Id
+
+
+                 }).ToList();
+
+            List<SelectListItem> itemsVA = lstVA.ConvertAll(d =>
+            {
+                return new SelectListItem()
+                {
+                    Text = d.Id.ToString(),
+                    Value = d.Id.ToString(),
+                    Selected = true
+                };
+            });
+
+            ViewBag.itemsVA = itemsVA;
+
+            return View();
+        }
+
+        //Ver Informacion del ingreso
+        public ActionResult InfoAlta(Ingresos ingresos)
+        {
+            var DatosAlta = (from ingreso in db.Ingresos
+                            join paciente in db.Pacientes on ingreso.PacientesId equals paciente.Id
+                            join habitacion in db.Habitaciones on ingreso.HabitacionesId equals habitacion.Id
+                            where ingreso.Id == ingresos.Id
+                            select new
+                            {
+                                ingresoId = ingreso.Id,
+                                fechaIngreso = ingreso.Fecha,
+                                pacienteId = paciente.Id,
+                                pacienteNombre = paciente.Nombre,
+                                habitacionNumero = habitacion.Numero,
+                                habitacionPP = habitacion.PrecioPorDia
+                            });
+
+
+            foreach (var datos in DatosAlta)
+            {
+                
+                ViewBag.FechaIngreso = datos.fechaIngreso;
+                ViewBag.PacienteId = datos.pacienteId;
+                ViewBag.PacienteNombre = datos.pacienteNombre;
+                ViewBag.HabitacionNumero = datos.habitacionNumero;
+
+            }
+
+            var DatosAltaLocal = DatosAlta.FirstOrDefault();
+
+            ViewBag.DatosAlta = DatosAlta;
+
+            TempData["IngresoId"] = DatosAltaLocal.ingresoId;
+            TempData["HabitacionPP"] = DatosAltaLocal.habitacionPP;
+            TempData["FechaIngreso"] = DatosAltaLocal.fechaIngreso;
+            return View();
+            
+        }
+
+        //Mostrar vista GuardarAlta
+        public ActionResult GuardarAlta()
+        {
+            
+
+
+            return View();
+        }
+
+        //Hacer operacion de Monto total t insertar agregar Alta
+        [HttpPost]
+        public ActionResult GuardarAlta(Altas altas)
+        {
+            DateTime FechaIngreso = DateTime.Parse(TempData["FechaIngreso"].ToString());
+            DateTime FechaAlta = altas.Fecha;
+
+            TimeSpan t = FechaAlta - FechaIngreso;
+            double Dias = t.TotalDays;
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+
+                    altas.IngresosId = int.Parse(TempData["IngresoId"].ToString());
+                    altas.Monto = double.Parse(TempData["HabitacionPP"].ToString()) * Dias;
+
+                    db.Altas.Add(altas);
+                    db.SaveChanges();
+
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(e.Message);
+                }
+
+
+                return RedirectToAction("VistaAltas");
+            }
+
+            return View(altas);
+        }
+
+        // Borrar Alta
+        public ActionResult BorrarAlta(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Altas altas = db.Altas.Find(id);
+            if (altas == null)
+            {
+                return HttpNotFound();
+            }
+            return View(altas);
+        }
+
+        // Confirmar Borrar Alta
+        [HttpPost, ActionName("BorrarAlta")]
+        public ActionResult ConfirmarBorrarAlta(int id)
+        {
+            Altas altas = db.Altas.Find(id);
+            db.Altas.Remove(altas);
+            db.SaveChanges();
+            return RedirectToAction("VistaAltas");
         }
 
     }

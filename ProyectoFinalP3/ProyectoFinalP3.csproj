@@ -146,6 +146,7 @@
     <Compile Include="Models\ViewModels\HModel.cs" />
     <Compile Include="Models\ViewModels\MModel.cs" />
     <Compile Include="Models\ViewModels\PModel.cs" />
+    <Compile Include="Models\ViewModels\VistaAltasAModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -206,6 +207,11 @@
     <Content Include="Views\ModuloProcesos\VistaIngresos.cshtml" />
     <Content Include="Views\ModuloProcesos\EditarIngreso.cshtml" />
     <Content Include="Views\ModuloProcesos\BorrarIngreso.cshtml" />
+    <Content Include="Views\ModuloProcesos\VistaAltas.cshtml" />
+    <Content Include="Views\ModuloProcesos\AgregarAlta.cshtml" />
+    <Content Include="Views\ModuloProcesos\InfoAlta.cshtml" />
+    <Content Include="Views\ModuloProcesos\GuardarAlta.cshtml" />
+    <Content Include="Views\ModuloProcesos\BorrarAlta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

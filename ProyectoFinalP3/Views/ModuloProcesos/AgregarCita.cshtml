@@ -46,7 +46,8 @@
                             @Html.ValidationMessageFor(a => a.Fecha, "", new { @class = "text-danger" })
                         </div>
                         <div>
-                            <input type="submit" value="Agregar" class="btn btn-primary" />
+                            <input type="submit" value="Agregar" class="btn btn-primary" /> |
+                            @Html.ActionLink("Volver atras", "VistaCitas")
                         </div>
                     }
                 </div>

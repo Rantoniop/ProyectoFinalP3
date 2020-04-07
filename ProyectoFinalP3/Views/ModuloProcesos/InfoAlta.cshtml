@@ -1,0 +1,66 @@
+﻿@model ProyectoFinalP3.Models.Ingresos
+@using ProyectoFinalP3.Models
+
+@{
+    ViewBag.Title = "IngresoPaciente";
+
+
+    List<SelectListItem> itemsVA = (List<SelectListItem>)ViewBag.itemsVA;
+
+}
+
+<html>
+<head>
+    <title>Agregar Cita</title>
+    <style>
+        .panel {
+            margin-top: 35px;
+            max-width: 350px;
+            min-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div></div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title text-center">Ingreso Alta</h4>
+            </div>
+            <div class="panel-body">
+                <div>
+                    <div class="form-group">
+                        <h4>Datos de Ingreso</h4>
+                    </div>
+                    @foreach (var datos in ViewBag.DatosAlta)
+                    {
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <p><b>Fecha de Ingreso:</b> @ViewBag.FechaIngreso</p>
+                            </li>
+                            <li class="list-group-item">
+                                <p><b>Id de Paciente:</b> @ViewBag.PacienteId</p>
+                            </li>
+                            <li class="list-group-item">
+                                <p><b>Nombre de Paciente:</b> @ViewBag.PacienteNombre</p>
+                            </li>
+                            <li class="list-group-item">
+                                <p><b>Numero de Habitacion:</b> @ViewBag.HabitacionNumero</p>
+                            </li>
+                            
+                        </ul>
+                    }
+
+                        <div>
+                            
+                            @Html.ActionLink("Agregar", "GuardarAlta","ModuloProcesos", new { @class = "btn btn-primary" }) |
+                            @Html.ActionLink("Volver atras", "AgregarAlta")
+                        </div>
+
+                </div>
+            </div>
+        </div>
+        <div></div>
+    </div>
+</body>
+</html>
