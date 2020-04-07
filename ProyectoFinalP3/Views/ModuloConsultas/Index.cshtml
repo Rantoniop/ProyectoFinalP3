@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Modulo Consultas";
+}
+
+<html>
+<head>
+    <title>Modulo Consultas</title>
+    <style>
+        .panel {
+            margin-top: 35px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title text-center">Módulo Consultas</h4>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item">@Html.ActionLink("Pacientes", "VistaPacientes", "ModuloConsultas")</li>
+                    <li class="list-group-item">@Html.ActionLink("Medicos", "", "")</li>
+                    <li class="list-group-item">@Html.ActionLink("Habitaciones", "", "")</li>
+                    <li class="list-group-item">@Html.ActionLink("Citas Medicas", "", "")</li>
+                    <li class="list-group-item">@Html.ActionLink("Ingresos", "", "")</li>
+                    <li class="list-group-item">@Html.ActionLink("Altas Medicas", "", "")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div></div>
+</body>
+</html>

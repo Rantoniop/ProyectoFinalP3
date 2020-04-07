@@ -1,0 +1,84 @@
+﻿@model ProyectoFinalP3.Models.Pacientes
+
+
+@using ProyectoFinalP3.Models
+
+@{
+    ViewBag.Title = "Consultas Paciente";
+}
+
+<html>
+<head>
+    <title>Consultas Paciente</title>
+
+    <meta charset="utf-8" />
+
+    <style>
+        .panel {
+            margin-top: 35px;
+        }
+    </style>
+</head>
+<body>
+   
+        <div></div>
+        <div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title text-center">Módulo Consultas</h4>
+                </div>
+                <div class="panel-body">
+                    @Html.ActionLink("Volver atras", "Index")
+                    <h2 class="text-center title">Consultas Paciente</h2>
+                    <div class="form-group">
+
+                        <div class="form-group">
+                            @Html.ActionLink("Filtrar", "", "", new { @class = "btn btn-primary" })
+                        </div>
+
+                        <table class="table table-bordered table-striped">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Id)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Cedula)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Nombre)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Asegurado)
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (Pacientes pacientes in ViewBag.Pacientes)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => pacientes.Id)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => pacientes.Cedula)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => pacientes.Nombre)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => pacientes.Asegurado)
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div></div>
+</body>
+</html>

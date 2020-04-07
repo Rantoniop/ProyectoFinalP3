@@ -129,6 +129,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HabitacionesController.cs" />
     <Compile Include="Controllers\MedicosController.cs" />
+    <Compile Include="Controllers\ModuloConsultasController.cs" />
     <Compile Include="Controllers\ModuloCRUDController.cs" />
     <Compile Include="Controllers\ModuloProcesosController.cs" />
     <Compile Include="Controllers\PacientesController.cs" />
@@ -212,6 +213,8 @@
     <Content Include="Views\ModuloProcesos\InfoAlta.cshtml" />
     <Content Include="Views\ModuloProcesos\GuardarAlta.cshtml" />
     <Content Include="Views\ModuloProcesos\BorrarAlta.cshtml" />
+    <Content Include="Views\ModuloConsultas\Index.cshtml" />
+    <Content Include="Views\ModuloConsultas\VistaPacientes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

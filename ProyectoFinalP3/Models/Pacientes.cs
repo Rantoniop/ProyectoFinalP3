@@ -18,4 +18,5 @@ namespace ProyectoFinalP3.Models
         public string Nombre { get; set; }
         public bool Asegurado { get; set; }
     }
+
 }
